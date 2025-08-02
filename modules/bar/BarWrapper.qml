@@ -13,7 +13,7 @@ Item {
     required property PersistentProperties visibilities
     required property BarPopouts.Wrapper popouts
 
-    readonly property int exclusiveZone: Config.bar.persistent || visibilities.bar ? content.implicitWidth : Config.border.thickness
+    readonly property int exclusiveZone: 60
     property bool isHovered
 
     function checkPopout(y: real): void {
