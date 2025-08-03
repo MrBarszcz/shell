@@ -539,29 +539,25 @@ Item {
     }
 
     Item {
-        id: bongocat
+        id: bongocat
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: details.right
+        anchors.leftMargin: Appearance.spacing.normal
+        implicitWidth: visualiser.width
+        implicitHeight: visualiser.height
 
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: details.right
-        anchors.leftMargin: Appearance.spacing.normal
-
-        implicitWidth: visualiser.width
-        implicitHeight: visualiser.height
-
-        AnimatedImage {
-            anchors.centerIn: parent
-
-            width: visualiser.width * 0.75
-            height: visualiser.height * 0.75
-
-            playing: Players.active?.isPlaying ?? false
-            speed: BeatDetector.bpm / 300
-            source: Paths.expandTilde(Config.paths.mediaGif)
-            asynchronous: true
-            fillMode: AnimatedImage.PreserveAspectFit
-        }
-    }
-
+        AnimatedImage {
+            anchors.centerIn: parent
+            width: visualiser.width * 0.75
+            height: visualiser.height * 0.75
+            playing: Players.active?.isPlaying ?? false
+            speed: BeatDetector.bpm / 300
+            source: Paths.expandTilde(Config.paths.mediaGif)
+            asynchronous: true
+            fillMode: AnimatedImage.PreserveAspectFit
+        }
+    }
+    
     component PlayerIcon: Loader {
         id: loader
 
