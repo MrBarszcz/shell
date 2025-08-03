@@ -76,7 +76,7 @@ Singleton {
         property color m3tertiary_paletteKeyColor: "#976A7D"
         property color m3neutral_paletteKeyColor: "#79767D"
         property color m3neutral_variant_paletteKeyColor: "#797680"
-        property color m3background: "#141318"
+        property color m3background: "#BE0000"
         property color m3onBackground: "#E5E1E9"
         property color m3surface: "#141318"
         property color m3surfaceDim: "#141318"
