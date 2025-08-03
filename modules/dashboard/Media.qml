@@ -539,41 +539,24 @@ Item {
     }
 
     Item {
-    id: bongocat
-
-    // Mantemos o posicionamento e tamanho originais
-    anchors.verticalCenter: parent.verticalCenter
-    anchors.left: details.right
-    anchors.leftMargin: Appearance.spacing.normal
-    implicitWidth: visualiser.width
-    implicitHeight: visualiser.height
-
-    // --- A MUDANÇA É DAQUI PARA BAIXO ---
-
-    // 1. Um retângulo que preenche o Item e corta a imagem
-    Rectangle {
-        id: gifContainer
-        anchors.fill: parent // Preenche o Item 'bongocat'
-        color: "transparent"
-        radius: 20 // <-- AJUSTE O ARREDONDAMENTO AQUI
-        clip: true   // <-- Corta o conteúdo
-
-        // 2. A imagem animada, que agora preenche o Retângulo
-        AnimatedImage {
-            anchors.fill: parent
-            
-            // Reduzimos um pouco o tamanho para criar um "padding" interno, se quiser
-            // Senão, pode remover as âncoras e as margens
-            anchors.margins: 2 
-
-            playing: Players.active?.isPlaying ?? false
-            speed: BeatDetector.bpm / 300
-            source: Paths.expandTilde(Config.paths.mediaGif)
-            asynchronous: true
-            fillMode: AnimatedImage.PreserveAspectFit
-        }
-    }
-}
+        id: bongocat
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: details.right
+        anchors.leftMargin: Appearance.spacing.normal
+        implicitWidth: visualiser.width
+        implicitHeight: visualiser.height
+        
+        AnimatedImage {
+            anchors.centerIn: parent
+            width: visualiser.width * 0.75
+            height: visualiser.height * 0.75
+            playing: Players.active?.isPlaying ?? false
+            speed: BeatDetector.bpm / 300
+            source: Paths.expandTilde(Config.paths.mediaGif)
+            asynchronous: true
+            fillMode: AnimatedImage.PreserveAspectFit
+        }
+    }
     
     component PlayerIcon: Loader {
         id: loader
